@@ -28,12 +28,12 @@ def get_contain(soup, file):
     count = 0
     for container_table in soup.find_all(class_="container"):         #從網站程式碼看到 標籤為class
         count += 1
-        for word_entry in container_table.find_all("row"):
+        for contain_entry in container_table.find_all("row"):
             new_contain = []                                           #蒐集每一個內容
             new_contain.append(file)
             new_contain.append(str(count))
-            new_contain.append(word_entry.th.text)                     #先丟到new_word這個list
-            new_contain.append(word_entry.td.text)
+            new_contain.append(contain_entry.th.text)                     #先丟到new_word這個list
+            new_contain.append(contain_entry.td.text)
             contain.append(new_contain)                                #再丟到words這個list裡
     return contain
 
